@@ -5,6 +5,8 @@ from typing import List
 
 import ephem
 import requests
+
+from gnss_predict.config import rich_console
 from rich import print
 
 
@@ -35,8 +37,6 @@ class TLEManager:
         Raises:
             SystemExit: On connection/download failure
         """
-        if verbose:
-            print(f"Downloading TLEs from NORAD for satellite systems: {gnss_systems}")
 
         # Split constellation list if multiple provided
         sat_systems = gnss_systems.split(",")
@@ -46,13 +46,15 @@ class TLEManager:
         for gnss in sat_systems:
             url = f"{TLEManager.BASE_URL}/{gnss}.txt"
             output_file = TLEManager.TMP_DIR / f"{gnss}.txt"
-            print(f"\nDownloading TLEs from {url} to {output_file}")
+            # print(f"\nDownloading TLEs from NORAD")
 
             try:
                 TLEManager._download_tle(url, output_file)
                 tle_filenames.append(output_file)
             except requests.exceptions.RequestException:
-                print(f"Connection to NORAD could not be established for TLE {gnss}.")
+                print(
+                    f"Connection to NORAD could not be established for TLE {gnss}."
+                )
 
                 if output_file.exists():
                     print(f"Using local file {output_file}")
@@ -91,14 +93,18 @@ class TLEManager:
             url: URL to download TLE file from
             output_file: Path to save downloaded file
         """
-        response = requests.get(url, stream=True)
-        response.raise_for_status()
+        with rich_console.status(
+            f"Downloading {url} from NORAD to {output_file}",
+            spinner="aesthetic",
+        ):
+            response = requests.get(url, stream=True)
+            response.raise_for_status()
 
-        with output_file.open("wb") as f:
-            for chunk in response.iter_content(chunk_size=1024):
-                if chunk:
-                    f.write(chunk)
-                    f.flush()
+            with output_file.open("wb") as f:
+                for chunk in response.iter_content(chunk_size=1024):
+                    if chunk:
+                        f.write(chunk)
+                        f.flush()
 
     @staticmethod
     def load_tle(
