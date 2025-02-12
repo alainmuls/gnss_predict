@@ -106,19 +106,31 @@ class Station(ephem.Observer):
         yr, mm, dd = self.get_ymd()
         return f"{yr:04d}{mm:02d}{dd:02d}"
 
-    # def station_print(self) -> None:
-    #     """Print formatted station information including coordinates and date."""
-    #     yr, mm, dd = self.get_ymd()
-    #     print(f'{self.name},{ephem.degrees(self.lat)},{ephem.degrees(self.lon)},{yr:04d}/{mm:02d}/{dd:02d}')
-
     def __str__(self) -> str:
         """Return formatted string representation of station."""
-        yr, mm, dd = self.get_ymd()
-        return f"{self.name},{ephem.degrees(self.lat)},{ephem.degrees(self.lon)},{yr:04d}/{mm:02d}/{dd:02d}"
+        formatted_date = self.date.datetime().strftime('%Y/%m/%d')
+        lat_dms = str(ephem.degrees(self.lat)).split(':')
+        lon_dms = str(ephem.degrees(self.lon)).split(':')
+        
+        return (
+            f"Station: {self.name}\n"
+            f"\t Latitude: {lat_dms[0]}° {lat_dms[1]}' {float(lat_dms[2]):.1f}\"\n"
+            f"\t Longitude: {lon_dms[0]}° {lon_dms[1]}' {float(lon_dms[2]):.1f}\"\n"
+            f"\t Date: {formatted_date}"
+        )
 
     def __repr__(self) -> str:
-        """Return detailed string representation for debugging."""
-        return f"Station(name='{self.name}', lat={ephem.degrees(self.lat)}, lon={ephem.degrees(self.lon)})"
+        """Return formatted string representation of station."""
+        formatted_date = self.date.datetime().strftime('%Y/%m/%d')
+        lat_dms = str(ephem.degrees(self.lat)).split(':')
+        lon_dms = str(ephem.degrees(self.lon)).split(':')
+        
+        return (
+            f"Station: {self.name}\n"
+            f"\t Latitude: {lat_dms[0]}° {lat_dms[1]}' {float(lat_dms[2]):.1f}\"\n"
+            f"\t Longitude: {lon_dms[0]}° {lon_dms[1]}' {float(lon_dms[2]):.1f}\"\n"
+            f"\t Date: {formatted_date}"
+        )
 
     def create_observer(
         self,
@@ -180,7 +192,8 @@ class Station(ephem.Observer):
             observer.date = ephem.Date(prediction_date)
 
         if verbose:
-            print(f"observer.date: {ephem.date(observer.date).triple()}\n")
+            formatted_date = observer.date.datetime().strftime("%Y/%m/%d")
+            print(f"Prediction for {formatted_date}")
 
         return observer
 

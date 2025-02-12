@@ -132,6 +132,6 @@ class TLEManager:
                 line1 = f.readline()
 
         if verbose:
-            print(f"{len(satellites)} satellites loaded\n")
+            print(f"{len(satellites)} satellites loaded from {tle_filename}\n")
 
         return satellites
