@@ -53,7 +53,7 @@ class TLEManager:
                 tle_filenames.append(output_file)
             except requests.exceptions.RequestException:
                 print(
-                    f"Connection to NORAD could not be established for TLE {gnss}."
+                    f"Connection to NORAD could not be established for TLE [red]{gnss}[/red]."
                 )
 
                 if output_file.exists():
@@ -76,7 +76,7 @@ class TLEManager:
             if verbose:
                 print(f"(Combined) TLE file saved in {output_file}")
         else:
-            print("No TLE files found. Exiting program.")
+            print("[red]No TLE files found. Exiting program.[/red]")
             sys.exit(10)
 
         return str(output_file)

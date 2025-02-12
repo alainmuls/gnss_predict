@@ -132,7 +132,7 @@ def create_dop_file(
         # close the file
         ofd.close()
     except IOError:
-        print("  Access to file %s failed" % xdop_ofn)
+        print(f"  Access to file [red]{xdop_ofn}[/red] failed")
 
 
 def create_geodetic_file(
@@ -185,7 +185,7 @@ def create_geodetic_file(
                     ofd.write("\n\n\n")
 
     except IOError:
-        print(f"\tAccess to file {geodetic_ofn} failed")
+        print(f"\tAccess to file [red]{geodetic_ofn}[/red] failed")
 
 
 def create_visible_file(
@@ -261,7 +261,7 @@ def create_visible_file(
                     ofd.write("\n\n\n")
 
     except IOError:
-        print(f"\tAccess to file {visible_ofn} failed")
+        print(f"\tAccess to file [red]{visible_ofn}[/red] failed")
 
 
 def create_tle_arc_file(

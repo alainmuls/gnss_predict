@@ -232,7 +232,7 @@ class Station(ephem.Observer):
 
         if end_datetime <= start_datetime:
             sys.stderr.write(
-                f"end time {end_datetime} is less than start time {start_datetime}. Program exits.\n"
+                f"end time [red]{end_datetime}[/red] is less than start time [red]{start_datetime}[/red].\nProgram exits.\n"
             )
             sys.exit(1)
 
