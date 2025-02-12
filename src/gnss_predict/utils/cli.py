@@ -2,10 +2,10 @@ from typing import Optional
 import argparse
 import os
 
-def parse_arguments() -> argparse.Namespace:
+def parse_arguments(script_name: str) -> argparse.Namespace:
     """Parse command line arguments for GNSS orbit prediction."""
     parser = argparse.ArgumentParser(
-        description=f'{os.path.basename(__file__)} predicts GNSS orbits based on TLEs'
+        description=f'{script_name} usesNORAD TLE files to predict GNSS orbits'
     )
     
     parser.add_argument(

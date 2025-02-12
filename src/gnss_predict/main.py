@@ -42,10 +42,8 @@ E_FAILURE = 99
 
 # main starts here
 def main():
-    # matplotlib.use("TkAgg")
-    # matplotlib.use("Agg")
 
-    args = parse_arguments()
+    args = parse_arguments(script_name="gnss_predict")
 
     # if ',' in excludeSats:
     #     sats_to_exclude = excludeSats.split(',')

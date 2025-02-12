@@ -37,7 +37,7 @@ After installation, you can run the GNSS tracking tool from the command line:
 ± gnss_predict -h
 usage: gnss_predict [-h] -g GNSS [-x EXCLUDE] [-i INTERVAL] [-c CUTOFF] [-o OBSERVER] [-d DATE] [-s START] [-e END] [-m MAX_DOP] [-v]
 
-cli.py predicts GNSS orbits based on TLEs
+gnss_predict usesNORAD TLE files to predict GNSS orbits
 
 options:
   -h, --help            show this help message and exit
@@ -64,7 +64,7 @@ The package includes:
 
 - __GNSS__ satellite time functions
 - __TLE__ (Two-Line Element) files
-- __Utility__ functions for data processing
+- __Utils__ utility functions for data processing
 
 ## Output
 
