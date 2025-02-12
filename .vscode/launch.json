@@ -1,0 +1,46 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python Debugger: gnss_tracking for BRUX",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "src/gnss_tracking/main.py",
+            "console": "integratedTerminal",
+            "env": {
+                "VIRTUALENVWRAPPER_PYTHON": "/home/amuls/venvmint/GNSStracking/bin/python"
+            },
+            "args": [
+                "-g",
+                "gps-ops,galileo",
+                "-v",
+                "-s",
+                "10:00",
+                "-e",
+                "13:25",
+                "-i",
+                "5",
+            ]
+        },
+        {
+            "name": "Python Debugger: gnss_tracking for BRUX (GPS & GAL) date 2023/03/14",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "src/gnss_tracking/main.py",
+            "console": "integratedTerminal",
+            "env": {
+                "VIRTUALENVWRAPPER_PYTHON": "/home/amuls/venvmint/GNSStracking/bin/python"
+            },
+            "args": [
+                "-g",
+                "gps-ops,galileo",
+                "-v",
+                "-d",
+                "2023/03/14"
+            ]
+        }
+    ]
+}

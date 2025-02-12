@@ -1,0 +1,27 @@
+Cartopy==0.24.1
+certifi==2025.1.31
+charset-normalizer==3.4.1
+contourpy==1.3.1
+cycler==0.12.1
+ephem==4.1.6
+fonttools==4.55.8
+-e git+ssh://git@gitlab.cylab.be/gnss/GNSStracking.git@135fcf353bfa5c9165dc4e4621644f8a0ae9e19f#egg=gnss_tracking
+idna==3.10
+kiwisolver==1.4.8
+markdown-it-py==3.0.0
+matplotlib==3.10.0
+mdurl==0.1.2
+numpy==2.2.2
+packaging==24.2
+pillow==11.1.0
+Pygments==2.19.1
+pyparsing==3.2.1
+pyproj==3.7.0
+pyshp==2.3.1
+python-dateutil==2.9.0.post0
+requests==2.32.3
+rich==13.9.4
+setuptools==75.8.0
+shapely==2.0.7
+six==1.17.0
+urllib3==2.3.0
