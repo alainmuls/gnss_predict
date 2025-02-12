@@ -4,22 +4,22 @@ import matplotlib.pyplot as plt
 import numpy as np
 from rich import print
 
-from gnss_tracking.GNSS import gpstime
-from gnss_tracking.output_files import (
+from gnss_predict.GNSS import gpstime
+from gnss_predict.output_files import (
     create_dop_file,
     create_geodetic_file,
     create_tle_arc_file,
     create_visible_file,
 )
-from gnss_tracking.plotting import (
+from gnss_predict.plotting import (
     plot_dop_visible,
     plot_groundtracks,
     plot_sky_view,
     plot_visible_sats,
 )
-from gnss_tracking.station import Station
-from gnss_tracking.tle.tle_class import TLEManager
-from gnss_tracking.utils.cli import parse_arguments
+from gnss_predict.station import Station
+from gnss_predict.tle.tle_class import TLEManager
+from gnss_predict.utils.cli import parse_arguments
 
 matplotlib.rcParams["backend"] = "TkAgg"
 

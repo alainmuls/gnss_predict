@@ -5,10 +5,10 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python Debugger: gnss_tracking for BRUX",
+            "name": "Python Debugger: gnss_predict for BRUX",
             "type": "debugpy",
             "request": "launch",
-            "program": "src/gnss_tracking/main.py",
+            "program": "src/gnss_predict/main.py",
             "console": "integratedTerminal",
             "env": {
                 "VIRTUALENVWRAPPER_PYTHON": "/home/amuls/venvmint/GNSStracking/bin/python"
@@ -26,10 +26,10 @@
             ]
         },
         {
-            "name": "Python Debugger: gnss_tracking for BRUX (GPS & GAL) date 2023/03/14",
+            "name": "Python Debugger: gnss_predict for BRUX (GPS & GAL) date 2023/03/14",
             "type": "debugpy",
             "request": "launch",
-            "program": "src/gnss_tracking/main.py",
+            "program": "src/gnss_predict/main.py",
             "console": "integratedTerminal",
             "env": {
                 "VIRTUALENVWRAPPER_PYTHON": "/home/amuls/venvmint/GNSStracking/bin/python"

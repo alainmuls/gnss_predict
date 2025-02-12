@@ -1,12 +1,12 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="gnss_tracking",
+    name="gnss_predict",
     version="1.0",
     packages=find_packages(where="src"),
     package_dir={"": "src"},
     package_data={
-        "gnss_tracking": ["GNSS/*", "tle/*", "utils/*"]
+        "gnss_predict": ["GNSS/*", "tle/*", "utils/*"]
     },
     include_package_data=True,
     install_requires=[
@@ -19,7 +19,7 @@ setup(
     ],
     entry_points={
         "console_scripts": [
-            "gnss_tracking=gnss_tracking.main:main",
+            "gnss_predict=gnss_predict.main:main",
         ],
     },
 )

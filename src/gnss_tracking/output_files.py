@@ -8,7 +8,7 @@ import ephem
 import numpy as np
 from ephem import EarthSatellite
 
-from gnss_tracking.GNSS import gpstime
+from gnss_predict.GNSS import gpstime
 
 from .station import Station
 

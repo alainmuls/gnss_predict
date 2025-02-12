@@ -16,7 +16,7 @@ A Python package for tracking Global Navigation Satellite Systems (GNSS) satelli
 Install the package using pip:
 
 ```bash
-pip install gnss_tracking
+pip install gnss_predict
 ```
 
 ## Requirements
@@ -34,8 +34,8 @@ The package requires the following Python libraries:
 
 After installation, you can run the GNSS tracking tool from the command line:
 ```python
-± gnss_tracking -h
-usage: gnss_tracking [-h] -g GNSS [-x EXCLUDE] [-i INTERVAL] [-c CUTOFF] [-o OBSERVER] [-d DATE] [-s START] [-e END] [-m MAX_DOP] [-v]
+± gnss_predict -h
+usage: gnss_predict [-h] -g GNSS [-x EXCLUDE] [-i INTERVAL] [-c CUTOFF] [-o OBSERVER] [-d DATE] [-s START] [-e END] [-m MAX_DOP] [-v]
 
 cli.py predicts GNSS orbits based on TLEs
 
