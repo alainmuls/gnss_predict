@@ -10,13 +10,13 @@ def parse_arguments(script_name: str) -> argparse.Namespace:
     
     parser.add_argument(
         '-g', '--gnss',
-        help='Name of GNSSs as comma separated list ( NORAD naming: gps-ops, galileo, glo-ops, beidou, qzss, iridium)',
+        help='Name of GNSSs as comma separated list ( NORAD naming: gps-ops, galileo, glo-ops, beidou)',
         required=True
     )
     
     parser.add_argument(
         '-x', '--exclude',
-        help='Comma separated list of satellite PRNs to exclude from DOP calculation (eg. E18,E14,E20)',
+        help='Comma separated list of satellite PRNs to exclude from DOP calculation (eg. G18,E14,C20)',
         default=''
     )
     
