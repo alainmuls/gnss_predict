@@ -10,7 +10,7 @@ def parse_arguments(script_name: str) -> argparse.Namespace:
     
     parser.add_argument(
         '-g', '--gnss',
-        help='Name of GNSSs as comma separated list (cfr NORAD naming)',
+        help='Name of GNSSs as comma separated list ( NORAD naming: gps-ops, galileo, glo-ops, beidou, qzss, iridium)',
         required=True
     )
     
