@@ -133,7 +133,8 @@ def plot_visible_sats(
 
         plot_ofn = f"/tmp/{observer.name}_{cli_args.gnss.replace(',', '_')}_{observer.get_ymd_str()}_visibility.png"
         fig.savefig(plot_ofn, dpi=fig.dpi)
-        print(f"\tSaved figure {plot_ofn}")
+        if cli_args.verbose:
+            print(f"\tSaved figure {plot_ofn}")
 
         if cli_args.verbose:
             plt.draw()
@@ -327,7 +328,8 @@ def plot_sky_view(
         # ax2 = ax1.twinx()
         plot_ofn = f"/tmp/{observer.name}_{cli_args.gnss.replace(',', '_')}_{observer.get_ymd_str()}_skyview.png"
         fig.savefig(plot_ofn, dpi=fig.dpi)
-        print(f"\tSaved figure {plot_ofn}")
+        if cli_args.verbose:
+            print(f"\tSaved figure {plot_ofn}")
 
         if cli_args.verbose:
             plt.draw()
@@ -515,7 +517,8 @@ def plot_groundtracks(
         # Save figure
         plot_ofn = f'/tmp/{observer.name}_{cli_args.gnss.replace(",", "_")}-{observer.get_ymd_str()}_groundtrack.png'
         plt.savefig(plot_ofn)
-        print(f"\tSaved figure {plot_ofn}")
+        if cli_args.verbose:
+            print(f"\tSaved figure {plot_ofn}")
 
         if cli_args.verbose:
             plt.draw()
@@ -658,7 +661,8 @@ def plot_dop_visible(
 
         plot_ofn = f"/tmp/{observer.name}_{cli_args.gnss.replace(',', '_')}_{observer.get_ymd_str()}_DOP.png"
         fig.savefig(plot_ofn, dpi=fig.dpi)
-        print(f"\tSaved figure {plot_ofn}")
+        if cli_args.verbose:
+            print(f"\tSaved figure {plot_ofn}")
 
         if cli_args.verbose:
             plt.draw()
