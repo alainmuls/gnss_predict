@@ -59,7 +59,7 @@ def main():
     Station.initialize_defaults()
 
     # read in the observer info (name, latitude, longitude, date
-    marker_info = Station.set_observer_data(args.observer, args.date, args.verbose)
+    marker_info = Station.set_observer_data(args.observer)
     if args.verbose:
         print(marker_info)
 

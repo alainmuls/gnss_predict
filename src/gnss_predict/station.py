@@ -108,10 +108,10 @@ class Station(ephem.Observer):
 
     def __str__(self) -> str:
         """Return formatted string representation of station."""
-        formatted_date = self.date.datetime().strftime('%Y/%m/%d')
-        lat_dms = str(ephem.degrees(self.lat)).split(':')
-        lon_dms = str(ephem.degrees(self.lon)).split(':')
-        
+        formatted_date = self.date.datetime().strftime("%Y/%m/%d")
+        lat_dms = str(ephem.degrees(self.lat)).split(":")
+        lon_dms = str(ephem.degrees(self.lon)).split(":")
+
         return (
             f"Station: {self.name}\n"
             f"\t Latitude: {lat_dms[0]}° {lat_dms[1]}' {float(lat_dms[2]):.1f}\"\n"
@@ -121,10 +121,10 @@ class Station(ephem.Observer):
 
     def __repr__(self) -> str:
         """Return formatted string representation of station."""
-        formatted_date = self.date.datetime().strftime('%Y/%m/%d')
-        lat_dms = str(ephem.degrees(self.lat)).split(':')
-        lon_dms = str(ephem.degrees(self.lon)).split(':')
-        
+        formatted_date = self.date.datetime().strftime("%Y/%m/%d")
+        lat_dms = str(ephem.degrees(self.lat)).split(":")
+        lon_dms = str(ephem.degrees(self.lon)).split(":")
+
         return (
             f"Station: {self.name}\n"
             f"\t Latitude: {lat_dms[0]}° {lat_dms[1]}' {float(lat_dms[2]):.1f}\"\n"
@@ -164,6 +164,18 @@ class Station(ephem.Observer):
         return observer
 
     @classmethod
+    def parse_observer_string(self, observer_str: str) -> Tuple[str, float, float]:
+        # Split the string by comma
+        parts = observer_str.split(",")
+
+        # Extract the components
+        marker_name = parts[0]
+        latitude = float(parts[1])
+        longitude = float(parts[2])
+
+        return marker_name, latitude, longitude
+
+    @classmethod
     def set_observer_data(
         cls,
         station: Optional[str] = None,
@@ -181,19 +193,30 @@ class Station(ephem.Observer):
         Returns:
             Configured Station observer
         """
+        observer = Station()
+
         if station is None:
             observer = cls.RMA
         else:
-            observer.parse(station)
+            marker_name, lat, lon = cls.parse_observer_string(observer_str=station)
+            # observer.parse(station)
 
-        if prediction_date is None:
-            observer.date = ephem.date(ephem.now())
-        else:
-            observer.date = ephem.Date(prediction_date)
+            if prediction_date is None:
+                prediction_date = ephem.date(ephem.now())
+            else:
+                prediction_date = ephem.Date(prediction_date)
+
+            observer.init(
+                name=marker_name, lat=str(lat), lon=str(lon), date=prediction_date
+            )
 
         if verbose:
-            formatted_date = observer.date.datetime().strftime("%Y/%m/%d")
-            print(f"Prediction for {formatted_date}")
+            print(
+                f"Observer: {observer.name} @ (lat={observer.lat}, lon={observer.lon}) "
+                f"for {observer.date.datetime().strftime("%Y/%m/%d")}"
+            )
+            # formatted_date = observer.date.datetime().strftime("%Y/%m/%d")
+            # print(f"Prediction for {formatted_date}")
 
         return observer
 
