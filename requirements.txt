@@ -5,6 +5,7 @@ contourpy==1.3.1
 cycler==0.12.1
 ephem==4.1.6
 fonttools==4.55.8
+-e git+ssh://git@gitlab.cylab.be/gnss/gnss_predict.git@6233f21a63f6825add3b6c18c8c2b734406f375d#egg=gnss_predict
 idna==3.10
 kiwisolver==1.4.8
 markdown-it-py==3.0.0
@@ -12,15 +13,18 @@ matplotlib==3.10.0
 mdurl==0.1.2
 numpy==2.2.2
 packaging==24.2
+pandas==2.2.3
 pillow==11.1.0
 Pygments==2.19.1
 pyparsing==3.2.1
 pyproj==3.7.0
 pyshp==2.3.1
 python-dateutil==2.9.0.post0
+pytz==2025.1
 requests==2.32.3
 rich==13.9.4
 setuptools==75.8.0
 shapely==2.0.7
 six==1.17.0
+tzdata==2025.1
 urllib3==2.3.0
