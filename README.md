@@ -16,7 +16,7 @@ A Python package for tracking Global Navigation Satellite Systems (GNSS) satelli
 Install the package using pip:
 
 ```bash
-pip install gnss_predict
+pip install git+https://github.com/alainmuls/gnss_predict.git
 ```
 
 ## Requirements
@@ -37,19 +37,19 @@ After installation, you can run the GNSS tracking tool from the command line:
 ± gnss_predict -h
 usage: gnss_predict [-h] -g GNSS [-x EXCLUDE] [-i INTERVAL] [-c CUTOFF] [-o OBSERVER] [-d DATE] [-s START] [-e END] [-m MAX_DOP] [-v]
 
-gnss_predict usesNORAD TLE files to predict GNSS orbits
+gnss_predict uses NORAD TLE files to predict GNSS orbits
 
 options:
   -h, --help            show this help message and exit
   -g GNSS, --gnss GNSS  Name of GNSSs as comma separated list (cfr NORAD naming)
   -x EXCLUDE, --exclude EXCLUDE
-                        Comma separated list of satellite PRNs to exclude from DOP calculation (eg. E18,E14,E20)
+                        Comma separated list of satellite PRNs to exclude from DOP calculation (eg. G18,E14,E20)
   -i INTERVAL, --interval INTERVAL
                         Interval in minutes
   -c CUTOFF, --cutoff CUTOFF
                         Cutoff angle in degrees
   -o OBSERVER, --observer OBSERVER
-                        Station info "name,latitude,longitude" (units = degrees, defaults to RMA)
+                        Station info "name,latitude,longitude" (units = degrees, defaults to "RMA,50.84402,4.39293")
   -d DATE, --date DATE  Prediction date (YYYY/MM/DD), defaults to today
   -s START, --start START
                         Start time (hh:mm)
@@ -95,4 +95,4 @@ BSD License.
 
 ## Contact
 
-[Alain Muls](alain.muls@gmail.com)
+[Alain Muls](alain.muls@satnavam.be)
