@@ -1,3 +1,48 @@
 [build-system]
-requires = ["setuptools>=45", "wheel"]
+requires = ["setuptools>=61", "wheel"]
 build-backend = "setuptools.build_meta"
+
+[project]
+name = "gnss_predict"
+version = "1.0"
+description = "A Python package for tracking Global Navigation Satellite Systems (GNSS) satellites and analyzing their positions."
+readme = "README.md"
+authors = [{ name = "Alain Muls", email = "alain.muls@gmail.com" }]
+license = { text = "BSD License" }
+requires-python = ">=3.9"
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: BSD License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: GIS",
+    "Topic :: Scientific/Engineering :: Astronomy",
+]
+keywords = [
+    "gnss",
+    "tracking",
+    "satellite",
+    "tle",
+    "gps",
+    "galileo",
+    "dop",
+    "norad",
+]
+dependencies = ["ephem", "numpy", "matplotlib", "cartopy", "rich", "pandas"]
+
+[project.scripts]
+gnss_predict = "gnss_predict.main:main"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"gnss_predict" = ["GNSS/*", "tle/*", "utils/*"]
