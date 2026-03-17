@@ -34,7 +34,15 @@ keywords = [
     "norad",
     "requests",
 ]
-dependencies = ["ephem", "numpy", "matplotlib", "cartopy", "rich", "pandas"]
+dependencies = [
+    "ephem",
+    "numpy",
+    "matplotlib",
+    "cartopy",
+    "rich",
+    "pandas",
+    "requests>=2.32.5",
+]
 
 [project.scripts]
 gnss_predict = "gnss_predict.main:main"
